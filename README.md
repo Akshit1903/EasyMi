@@ -1,4 +1,4 @@
-# Easy Mi
+# EasyMi
 
  A Xiaomi Store that enables user to access store features in a fast and efficient manner.
 
