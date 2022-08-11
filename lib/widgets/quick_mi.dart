@@ -52,7 +52,6 @@ class _QuickMiState extends State<QuickMi> {
     });
   }
 
-  bool yellow = true;
   @override
   Widget build(BuildContext context) {
     final productsData = Provider.of<Products>(context);
@@ -62,7 +61,7 @@ class _QuickMiState extends State<QuickMi> {
       builder: (context, ss) => ss.data != true
           ? InkWell(
               onTap: () async {
-                await AppSettings.openNFCSettings(asAnotherTask: true);
+                await AppSettings.openNFCSettings();
                 setState(() {});
               },
               child: StatusBox(
@@ -77,15 +76,7 @@ class _QuickMiState extends State<QuickMi> {
                 return (val == null)
                     ? GestureDetector(
                         onTap: () async {
-                          setState(() {
-                            yellow = false;
-                          });
                           await _tagRead();
-                          print(result);
-                          print(result.value == null);
-                          setState(() {
-                            yellow = true;
-                          });
                         },
                         child: StatusBox(
                           "QuickMi is turned on, touch sensor!",
