@@ -21,15 +21,23 @@ class _OrderItemState extends State<OrderItem> {
     return AnimatedContainer(
       duration: Duration(milliseconds: 300),
       height:
-          _expanded ? min(widget.order.products.length * 20.0 + 110, 200) : 95,
+          _expanded ? min(widget.order.products.length * 20.0 + 110, 200) : 105,
       child: Card(
         margin: EdgeInsets.all(10),
         child: Column(
           children: [
             ListTile(
-              title: Text('\₹${widget.order.amount}'),
-              subtitle: Text(
-                DateFormat('dd/MM/yyyy hh:mm').format(widget.order.dateTime),
+              title: Text('Invoice No:${widget.order.id}'),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    DateFormat('dd/MM/yyyy hh:mm')
+                        .format(widget.order.dateTime),
+                  ),
+                  Text('Total Amount:\₹${widget.order.amount}'),
+                  Text("Delivery Status: Pending"),
+                ],
               ),
               trailing: IconButton(
                 icon: Icon(_expanded ? Icons.expand_less : Icons.expand_more),
@@ -74,7 +82,10 @@ class _OrderItemState extends State<OrderItem> {
                     )
                     .toList(),
               ),
-            )
+            ),
+            // FittedBox(
+            //   child: Text('\₹${widget.order.amount}'),
+            // ),
           ],
         ),
       ),

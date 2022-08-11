@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_app/widgets/store_type.dart';
 import '../provider/auth.dart';
 import '../models/http_exception.dart';
 
@@ -205,10 +206,10 @@ class _AuthCardState extends State<AuthCard>
       child: AnimatedContainer(
         duration: Duration(milliseconds: 300),
         curve: Curves.decelerate,
-        height: _authMode == AuthMode.Signup ? 320 : 260,
+        height: _authMode == AuthMode.Signup ? 360 : 300,
         // height: _heightAnimation.value.height,
         constraints:
-            BoxConstraints(minHeight: _authMode == AuthMode.Signup ? 320 : 260),
+            BoxConstraints(minHeight: _authMode == AuthMode.Signup ? 360 : 300),
         width: deviceSize.width * 0.75,
         padding: EdgeInsets.all(16.0),
         child: Form(
@@ -308,6 +309,7 @@ class _AuthCardState extends State<AuthCard>
                 SizedBox(
                   height: 20,
                 ),
+                StoreType(),
                 if (_isLoading)
                   CircularProgressIndicator()
                 else

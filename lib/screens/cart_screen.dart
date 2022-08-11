@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_app/widgets/customer_form.dart';
 
 import '../provider/cart.dart' show Cart;
 import '../widgets/cart_item.dart';
@@ -43,6 +44,7 @@ class CartScreen extends StatelessWidget {
               ],
             ),
           ),
+          CustomerForm(),
           SizedBox(height: 10),
           Expanded(
               child: ListView.builder(
