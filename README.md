@@ -1,16 +1,11 @@
-# shop_app
+# EasyMi
 
-A new Flutter project.
+ A Xiaomi Store that enables user to access store features in a fast and efficient manner.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+NFC tags mapped to specific products.
+Very simple to use UI with no banners and new launches.
+Item count shown on cart in the form of batch.
+Person in charge at POS may add his/her own products in the database through the app, giving more control of organization on sales. 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
