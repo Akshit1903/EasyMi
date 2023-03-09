@@ -1,7 +1,8 @@
 # EasyMi
 
 A Xiaomi Store that enables user to access store features in a fast and efficient manner.
-[.apk link](https://drive.google.com/file/d/1-MkSpbs-CtE6CBUOC1gnIb0WyinYzM5Z/view?usp=sharing)
+- [.apk link](https://drive.google.com/file/d/1-MkSpbs-CtE6CBUOC1gnIb0WyinYzM5Z/view?usp=sharing)
+- [YouTube Video](https://www.youtube.com/watch?v=T9C2cRTlgTI)
 
 ## Features
 
