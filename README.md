@@ -1,8 +1,7 @@
 # EasyMi
 
 A Xiaomi Store that enables user to access store features in a fast and efficient manner.
-- [.apk link](https://drive.google.com/file/d/1-MkSpbs-CtE6CBUOC1gnIb0WyinYzM5Z/view?usp=sharing)
-- [YouTube Video](https://www.youtube.com/watch?v=T9C2cRTlgTI)
+[.apk link](https://drive.google.com/file/d/1-MkSpbs-CtE6CBUOC1gnIb0WyinYzM5Z/view?usp=sharing)
 
 ## Features
 
@@ -18,7 +17,8 @@ Person in charge at POS may add his/her own products in the database through the
 
 ## Tutorial
 
-<img src="./tutorial.gif" height=400px width=400px>
+<img src="./tutorial2.gif" height=600px width=300px>
+<img src="./home.jpg" height=600px width=300px>
 
 Req. NFC enabled phone, NFC tag/phone
 
