@@ -10,10 +10,6 @@ Very simple to use UI with no banners and new launches.
 Item count shown on cart in the form of batch.
 Person in charge at POS may add his/her own products in the database through the app, giving more control of organization on sales.
 
-## About Project
-
-<img src="./about1.png" height=300px width=600px>
-<img src="./about2.png" height=300px width=600px>
 
 ## Tutorial
 

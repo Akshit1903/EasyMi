@@ -135,7 +135,7 @@ class Products with ChangeNotifier {
           }));
       _items[prodIndex] = newProduct;
       notifyListeners();
-    } else {}
+    }
   }
 
   Future<void> deleteProduct(String id) async {
