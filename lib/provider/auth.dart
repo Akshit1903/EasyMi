@@ -5,7 +5,6 @@ import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:shop_app/models/http_exception.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../provider/auth.dart';
 
 class Auth with ChangeNotifier {
   String _token;
@@ -70,7 +69,6 @@ class Auth with ChangeNotifier {
       });
       prefs.setString('userData', userData);
     } catch (error) {
-      print(error);
       throw (error);
     }
   }
