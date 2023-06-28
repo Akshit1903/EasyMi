@@ -4,7 +4,7 @@
 - The app integrates NFC (Near Field Communication) technology to enable users to scan products and make purchases seamlessly.
 - The app provides a convenient and interactive shopping experience, allowing users to browse products, view details, add items to the cart, and open products using NFC technology.
 - Firebase is utilized for secure user authentication and real-time data synchronization.
-- [📦.apk](https://github.com/Akshit1903/EasyMi/app-release.apk) :For testing purposes
+- [📦.apk](https://github.com/Akshit1903/EasyMi/blob/main/app-release.apk) :For testing purposes
 - [📽️YouTube](https://youtu.be/8rK-K-Eq_qg) Video
 
 ## Screenshots
