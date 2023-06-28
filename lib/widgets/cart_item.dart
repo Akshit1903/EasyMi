@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 
 import '../provider/cart.dart';
+import './cart_item_quantity.dart';
 
 class CartItem extends StatelessWidget {
+  NumberFormat myFormat = NumberFormat.decimalPattern('en_in');
   final String id;
   final String productId;
   final double price;
   final int quantity;
   final String title;
+  final String imageURL;
   CartItem(
     this.id,
     this.productId,
     this.price,
     this.quantity,
     this.title,
+    this.imageURL,
   );
   @override
   Widget build(BuildContext context) {
@@ -66,15 +71,21 @@ class CartItem extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.all(8),
             child: ListTile(
-              leading: CircleAvatar(
-                child: Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: FittedBox(child: Text('\₹${price}')),
-                ),
+              leading: Padding(
+                padding: const EdgeInsets.all(5.0),
+                // child: FittedBox(child: Text('\₹${price}')),
+                child: imageURL != null
+                    ? Image.network(
+                        imageURL,
+                        height: 50,
+                        width: 50,
+                        fit: BoxFit.cover,
+                      )
+                    : Text("P"),
               ),
               title: Text(title),
-              subtitle: Text('Total: ${price * quantity}'),
-              trailing: Text('$quantity X'),
+              subtitle: Text('$quantity X ₹${myFormat.format(price)}'),
+              trailing: CartItemQuantity(productId),
             ),
           )),
     );

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/widgets/store_type.dart';
@@ -206,7 +207,7 @@ class _AuthCardState extends State<AuthCard>
       child: AnimatedContainer(
         duration: Duration(milliseconds: 300),
         curve: Curves.decelerate,
-        height: _authMode == AuthMode.Signup ? 360 : 300,
+        height: _authMode == AuthMode.Signup ? 380 : 320,
         // height: _heightAnimation.value.height,
         constraints:
             BoxConstraints(minHeight: _authMode == AuthMode.Signup ? 360 : 300),
@@ -217,8 +218,12 @@ class _AuthCardState extends State<AuthCard>
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
+                SizedBox(
+                  height: 4,
+                ),
                 TextFormField(
                   decoration: InputDecoration(
+                    // border: InputBorder.none,
                     labelText: 'Email/Phone/Mi Account ID',
                     floatingLabelStyle: TextStyle(
                       color: Color.fromRGBO(255, 103, 0, 1),
@@ -242,20 +247,29 @@ class _AuthCardState extends State<AuthCard>
                     _authData['email'] = value;
                   },
                 ),
+                SizedBox(
+                  height: 10,
+                ),
                 TextFormField(
                   decoration: InputDecoration(
-                    // suffix: IconButton(
-                    //   icon: Icon(
-                    //     Icons.remove_red_eye,
-                    //     color: Colors.grey,
-                    //   ),
-                    //   onPressed: () {
-                    //     setState(() {
-                    //       _doesShowPassWord = !_doesShowPassWord;
-                    //     });
-                    //   },
-                    // ),
+                    // border: InputBorder.none,
                     labelText: 'Password',
+                    suffixIcon: IconButton(
+                      icon: SizedBox(
+                        height: 5,
+                        child: Icon(
+                          _doesShowPassWord
+                              ? CupertinoIcons.eye_fill
+                              : CupertinoIcons.eye_slash,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _doesShowPassWord = !_doesShowPassWord;
+                        });
+                      },
+                    ),
                     floatingLabelStyle: TextStyle(
                       color: Color.fromRGBO(255, 103, 0, 1),
                     ),

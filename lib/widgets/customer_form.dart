@@ -52,57 +52,57 @@ class _CustomerFormState extends State<CustomerForm> {
             });
           },
         ),
-        Container(
-          width: MediaQuery.of(context).size.width,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(4.0),
-                  margin: const EdgeInsets.all(4.0),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Colour',
-                      floatingLabelStyle: TextStyle(
-                        color: Color.fromRGBO(255, 103, 0, 1),
-                      ),
-                      focusColor: Color.fromRGBO(255, 103, 0, 1),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color.fromRGBO(255, 103, 0, 1),
-                          style: BorderStyle.solid,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(4.0),
-                  margin: const EdgeInsets.all(12.0),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Size',
-                      floatingLabelStyle: TextStyle(
-                        color: Color.fromRGBO(255, 103, 0, 1),
-                      ),
-                      focusColor: Color.fromRGBO(255, 103, 0, 1),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color.fromRGBO(255, 103, 0, 1),
-                          style: BorderStyle.solid,
-                        ),
-                      ),
-                    ),
-                    keyboardType: TextInputType.name,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+        // Container(
+        //   width: MediaQuery.of(context).size.width,
+        //   child: Row(
+        //     mainAxisAlignment: MainAxisAlignment.center,
+        //     children: [
+        //       Expanded(
+        //         child: Container(
+        //           padding: const EdgeInsets.all(4.0),
+        //           margin: const EdgeInsets.all(4.0),
+        //           child: TextField(
+        //             decoration: InputDecoration(
+        //               labelText: 'Colour',
+        //               floatingLabelStyle: TextStyle(
+        //                 color: Color.fromRGBO(255, 103, 0, 1),
+        //               ),
+        //               focusColor: Color.fromRGBO(255, 103, 0, 1),
+        //               focusedBorder: OutlineInputBorder(
+        //                 borderSide: BorderSide(
+        //                   color: Color.fromRGBO(255, 103, 0, 1),
+        //                   style: BorderStyle.solid,
+        //                 ),
+        //               ),
+        //             ),
+        //           ),
+        //         ),
+        //       ),
+        //       Expanded(
+        //         child: Container(
+        //           padding: const EdgeInsets.all(4.0),
+        //           margin: const EdgeInsets.all(12.0),
+        //           child: TextField(
+        //             decoration: InputDecoration(
+        //               labelText: 'Size',
+        //               floatingLabelStyle: TextStyle(
+        //                 color: Color.fromRGBO(255, 103, 0, 1),
+        //               ),
+        //               focusColor: Color.fromRGBO(255, 103, 0, 1),
+        //               focusedBorder: OutlineInputBorder(
+        //                 borderSide: BorderSide(
+        //                   color: Color.fromRGBO(255, 103, 0, 1),
+        //                   style: BorderStyle.solid,
+        //                 ),
+        //               ),
+        //             ),
+        //             keyboardType: TextInputType.name,
+        //           ),
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
       ],
     );
   }

@@ -126,7 +126,13 @@ class _EditProductScreenState extends State<EditProductScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit Products'),
+        title: Text(
+          'Edit Products',
+          style: TextStyle(
+            fontWeight: FontWeight.w900,
+            color: Colors.black54,
+          ),
+        ),
         actions: [
           IconButton(
             icon: Icon(Icons.save),
