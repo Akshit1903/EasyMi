@@ -19,7 +19,13 @@ class UserProductsScreen extends StatelessWidget {
     return Scaffold(
         drawer: AppDrawer(),
         appBar: AppBar(
-          title: const Text('Your Products'),
+          title: const Text(
+            'Your Products',
+            style: TextStyle(
+              fontWeight: FontWeight.w900,
+              color: Colors.black54,
+            ),
+          ),
           actions: [
             IconButton(
               icon: const Icon(Icons.add),
@@ -41,19 +47,48 @@ class UserProductsScreen extends StatelessWidget {
                       child: Consumer<Products>(
                         builder: (ctx, productsData, _) => Padding(
                           padding: EdgeInsets.all(8),
-                          child: ListView.builder(
-                            itemBuilder: (_, i) => Column(
-                              children: [
-                                UserProductItem(
-                                  productsData.items[i].id,
-                                  productsData.items[i].title,
-                                  productsData.items[i].imageUrl,
+                          child: (productsData.items.length == 0)
+                              ? Container(
+                                  alignment: Alignment.center,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.browser_not_supported_outlined,
+                                        size: 80,
+                                        color: Colors.grey,
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        "No products listed by you!",
+                                        style: TextStyle(
+                                          fontSize: 17,
+                                          color: Colors.black54,
+                                        ),
+                                      ),
+                                      TextButton(
+                                        onPressed: () => Navigator.of(context)
+                                            .pushReplacementNamed('/'),
+                                        child: Text("Shop now!"),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              : ListView.builder(
+                                  itemBuilder: (_, i) => Column(
+                                    children: [
+                                      UserProductItem(
+                                        productsData.items[i].id,
+                                        productsData.items[i].title,
+                                        productsData.items[i].imageUrl,
+                                      ),
+                                      Divider(),
+                                    ],
+                                  ),
+                                  itemCount: productsData.items.length,
                                 ),
-                                Divider(),
-                              ],
-                            ),
-                            itemCount: productsData.items.length,
-                          ),
                         ),
                       ),
                     ),

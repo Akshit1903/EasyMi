@@ -5,11 +5,13 @@ class CartItem {
   final String title;
   final int quantity;
   final double price;
+  final String imageUrl;
   CartItem({
     @required this.id,
     @required this.title,
     @required this.quantity,
     @required this.price,
+    this.imageUrl,
   });
 }
 
@@ -23,6 +25,7 @@ class Cart with ChangeNotifier {
     String productId,
     double price,
     String title,
+    String imageUrl,
   ) {
     if (_items.containsKey(productId)) {
       _items.update(
@@ -32,23 +35,31 @@ class Cart with ChangeNotifier {
           title: existingCartItem.title,
           quantity: existingCartItem.quantity + 1,
           price: existingCartItem.price,
+          imageUrl: imageUrl,
         ),
       );
     } else {
       _items.putIfAbsent(
           productId,
           () => CartItem(
-                id: DateTime.now().toString(),
-                title: title,
-                quantity: 1,
-                price: price,
-              ));
+              id: DateTime.now().toString(),
+              title: title,
+              quantity: 1,
+              price: price,
+              imageUrl: imageUrl));
     }
     notifyListeners();
   }
 
   int get itemCount {
     return _items.length;
+  }
+
+  int getQuantity(String productId) {
+    if (!_items.containsKey(productId)) {
+      return 0;
+    }
+    return _items[productId].quantity;
   }
 
   double get totalAmount {
@@ -75,11 +86,28 @@ class Cart with ChangeNotifier {
             id: existingCartItem.id,
             title: existingCartItem.title,
             quantity: existingCartItem.quantity - 1,
-            price: existingCartItem.price),
+            price: existingCartItem.price,
+            imageUrl: existingCartItem.imageUrl),
       );
     } else {
       _items.remove(productId);
     }
+    notifyListeners();
+  }
+
+  void addSingleItem(String productId) {
+    if (!_items.containsKey(productId)) {
+      return;
+    }
+    _items.update(
+      productId,
+      (existingCartItem) => CartItem(
+          id: existingCartItem.id,
+          title: existingCartItem.title,
+          quantity: existingCartItem.quantity + 1,
+          price: existingCartItem.price,
+          imageUrl: existingCartItem.imageUrl),
+    );
     notifyListeners();
   }
 

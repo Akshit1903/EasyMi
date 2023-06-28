@@ -4,9 +4,9 @@ import 'package:provider/provider.dart';
 import '../screens/product_detail_screen.dart';
 import '../provider/product.dart';
 import '../provider/cart.dart';
-import '../provider/auth.dart';
+// import '../provider/auth.dart';
 
-class ProductItem extends StatelessWidget {
+class ProductItem extends StatefulWidget {
   // final String id;
   // final String title;
   // final String imgUrl;
@@ -16,11 +16,15 @@ class ProductItem extends StatelessWidget {
   //   this.imgUrl,
   // );
 
+  @override
+  State<ProductItem> createState() => _ProductItemState();
+}
+
+class _ProductItemState extends State<ProductItem> {
   Widget build(BuildContext context) {
-    final authData = Provider.of<Auth>(context);
+    // final authData = Provider.of<Auth>(context);
     final product = Provider.of<Product>(
       context,
-      listen: false,
     );
     final cart = Provider.of<Cart>(context, listen: false);
     return GridTile(
@@ -48,10 +52,11 @@ class ProductItem extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         trailing: IconButton(
-          icon: Icon(Icons.shopping_cart),
+          icon: Icon(Icons.add_shopping_cart),
           color: Theme.of(context).accentColor,
           onPressed: () {
-            cart.addItems(product.id, product.price, product.title);
+            cart.addItems(
+                product.id, product.price, product.title, product.imageUrl);
             ScaffoldMessenger.of(context).hideCurrentSnackBar();
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
@@ -65,44 +70,6 @@ class ProductItem extends StatelessWidget {
           },
         ),
       ),
-    );
-  }
-}
-
-class FavoriteButton extends StatefulWidget {
-  FavoriteButton(this.product, this.authData);
-
-  Product product;
-  Auth authData;
-
-  @override
-  _FavoriteButtonState createState() => _FavoriteButtonState();
-}
-
-class _FavoriteButtonState extends State<FavoriteButton> {
-  bool _isLoading = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      icon: _isLoading
-          ? CircularProgressIndicator()
-          : Icon(widget.product.isFavorite
-              ? Icons.favorite
-              : Icons.favorite_border),
-      color: Theme.of(context).accentColor,
-      onPressed: () async {
-        setState(() {
-          _isLoading = true;
-          print(_isLoading);
-        });
-        await widget.product.toggleFavoriteStatus(
-            widget.product.id, widget.authData.token, widget.authData.userId);
-        setState(() {
-          _isLoading = false;
-          print(_isLoading);
-        });
-      },
     );
   }
 }

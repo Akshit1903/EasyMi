@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import './cart_screen.dart';
 import '../provider/cart.dart';
 import '../widgets/products_grid.dart';
+import 'products_grid_favorite.dart';
 import '../widgets/badge.dart';
 import '../widgets/app_drawer.dart';
 import '../provider/products.dart';
@@ -20,7 +21,6 @@ class ProductOverviewScreen extends StatefulWidget {
 }
 
 class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
-  var _showOnlyFavorites = false;
   var _isInit = true;
   var _isLoading = false;
 
@@ -38,7 +38,9 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
       setState(() {
         _isLoading = true;
       });
-      Provider.of<Products>(context).fetchAndSetProducts().then((_) {
+      Provider.of<Products>(context, listen: false)
+          .fetchAndSetProducts()
+          .then((_) {
         setState(() {
           _isLoading = false;
         });
@@ -53,22 +55,35 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
     return Scaffold(
       drawer: AppDrawer(),
       appBar: AppBar(
-        title: Text('Welcome to EasyMi'),
+        title: Text(
+          'Welcome to EasyMi',
+          style: TextStyle(
+            fontWeight: FontWeight.w900,
+            color: Colors.black54,
+          ),
+        ),
         actions: [
           // PopupMenuButton(
           //   onSelected: (FilterOptions selectedValue) {
-          //     setState(() {
-          //       if (selectedValue == FilterOptions.Favorites) {
-          //         _showOnlyFavorites = true;
-          //       } else {
-          //         _showOnlyFavorites = false;
-          //       }
-          //     });
+          //     // setState(() {
+          //     //   if (selectedValue == FilterOptions.Favorites) {
+          //     //     setState(() {
+          //     //       _showOnlyFavorites = true;
+          //     //     });
+          //     //   } else {
+          //     //     setState(() {
+          //     //       _showOnlyFavorites = false;
+          //     //     });
+          //     //   }
+          //     // });
+          //     if (selectedValue == FilterOptions.Favorites) {
+          //       Navigator.of(context).pushNamed(ProductsGridFavorite.routeName);
+          //     }
           //   },
           //   icon: Icon(Icons.more_vert),
           //   itemBuilder: (_) => [
           //     PopupMenuItem(
-          //       child: Text('Only Favorites'),
+          //       child: Text('Show Favorites'),
           //       value: FilterOptions.Favorites,
           //     ),
           //     PopupMenuItem(
@@ -103,7 +118,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
                 SizedBox(
                   height: 20,
                 ),
-                Expanded(child: ProductsGrid(_showOnlyFavorites)),
+                Expanded(child: ProductsGrid()),
               ],
             ),
     );

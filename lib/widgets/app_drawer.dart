@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_app/screens/cart_screen.dart';
+import 'package:shop_app/screens/products_grid_favorite.dart';
 
 import '../screens/orders_screen.dart';
 import '../screens/user_products_screen.dart';
@@ -13,7 +16,13 @@ class AppDrawer extends StatelessWidget {
       children: [
         AppBar(
           title: FittedBox(
-            child: Text('EasyMi=shopping Mi products easier!'),
+            child: Text(
+              'EasyMi: shopping made easier!',
+              style: TextStyle(
+                fontWeight: FontWeight.w900,
+                color: Colors.black54,
+              ),
+            ),
           ),
           automaticallyImplyLeading: false,
         ),
@@ -22,6 +31,25 @@ class AppDrawer extends StatelessWidget {
           leading: Icon(Icons.shop),
           title: Text('Shop'),
           onTap: () => Navigator.of(context).pushReplacementNamed('/'),
+        ),
+        Divider(),
+        ListTile(
+          leading: Icon(Icons.shopping_bag_sharp),
+          title: Text('Cart'),
+          onTap: () => Navigator.of(context).pushNamed(CartScreen.routeName),
+        ),
+        Divider(),
+        ListTile(
+          leading: Icon(CupertinoIcons.heart_fill),
+          title: Text('Favorites'),
+          onTap: () {
+            if (ModalRoute.of(context).settings.name ==
+                ProductsGridFavorite.routeName) {
+              return;
+            }
+            Navigator.of(context)
+                .pushReplacementNamed(ProductsGridFavorite.routeName);
+          },
         ),
         Divider(),
         ListTile(
