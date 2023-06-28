@@ -5,6 +5,11 @@
 - The app provides a convenient and interactive shopping experience, allowing users to browse products, view details, add items to the cart, and open products using NFC technology.
 - Firebase is utilized for secure user authentication and real-time data synchronization.
 - [📦.apk](https://github.com/Akshit1903/EasyMi/app-release.apk) :For testing purposes
+- [📽️YouTube](https://youtu.be/8rK-K-Eq_qg) Video
+
+## Screenshots
+
+<img src="./assets/readme/1.jpg" width="150" height=auto/><img src="./assets/readme/2.jpg" width="150" height=auto/><img src="./assets/readme/3.jpg" width="150" height=auto/><img src="./assets/readme/4.jpg" width="150" height=auto/><img src="./assets/readme/6.jpg" width="150" height=auto/><img src="./assets/readme/5.gif" width="200" height=auto/>
 
 ## Features
 
